@@ -1,0 +1,12 @@
+{
+  "name": "mvp-fresh",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "mongoose": "^4.0.5",
+    "request": "^2.36.0"
+  }
+}
