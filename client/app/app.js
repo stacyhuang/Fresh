@@ -1,8 +1,11 @@
-angular.module('fresh', ['fresh.items'])
+angular.module('fresh', [
+  'fresh.items',
+  'ngRoute'
+])
 .config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'app/items/items.html',
-			controller: 'itemsController'
+			controller: 'ItemsController'
 		});
 });

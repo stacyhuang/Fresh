@@ -1,5 +1,7 @@
 angular.module('fresh.items', [])
 
-.controller('itemsController', function($scope){
+.controller('ItemsController', function ($scope) {
+  // Your code here
 
+  $scope.data = {};
 });
