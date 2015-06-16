@@ -1,22 +1,23 @@
 <div class="container">
-	<form name="inputField" ng-submit="addItem">
-		<input type="text" ng-model="item.name" placeholder="Add an item" />
-		<input type="date" ng-model="item.expiration"/>
+	<form name="inputField" ng-submit="addItem()">
+		<input type="text" ng-model="item.itemName" placeholder="Add an item" />
+		<input type="date" ng-model="item.expirationDate"/>
 		<button>Add</button>
 	</form>
 
-	<div class="items">
-		<!-- Title bar -->
-		<div class="item container text-center">
-			<div class="itemName col-xs-6">Item</div>
-			<div class="purchaseDate col-xs-3">Purchase Date</div>
-			<div class="expirationDate .col-xs-3">Expiration Date</div>
-		</div>
-		<!-- Items -->
-		<div class="item" ng-repeat="item in items">
-			<div class="itemName">{{item.itemName}}</div>
-			<div class="purchaseDate">{{item.purchaseDate}}</div>
-			<div class="expirationDate">{{item.expirationDate}}</div>
+	<!-- Title bar -->
+	<div class="title container text-center">
+		<div class="itemName col-xs-6">Item</div>
+		<div class="purchaseDate col-xs-3">Purchase Date</div>
+		<div class="expirationDate col-xs-3">Expiration Date</div>
+	</div>
+
+	<!-- Items -->
+	<div class="items container">
+		<div class="item" ng-repeat="item in data">
+			<div class="itemName col-xs-6">{{item.itemName}}</div>
+			<div class="purchaseDate col-xs-3">{{item.purchaseDate}}</div>
+			<div class="expirationDate col-xs-3">{{item.expirationDate}}</div>
 		</div>
 	</div>
 

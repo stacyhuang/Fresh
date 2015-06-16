@@ -9,6 +9,9 @@ module.exports = function(app, express){
 	// serve static connect for the app from the "client" directory
 	app.use(express.static(__dirname + '/../../client'));
 
+	// use itemRouter for all item requests
+	app.use('/items', itemRouter);
+
 	// inject the itemRouter into the itemRoutes route file
 	require('../items/itemRoutes.js')(itemRouter);
 
