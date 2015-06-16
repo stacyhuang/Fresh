@@ -1,9 +1,23 @@
+body{
+	background-image: url("https://www.harrysfresh.com/wp-content/uploads/2014/12/ItalianSpread.jpg");
+	background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-width: 360px;
+  min-height: 800px;
+  color: black;
+}
+
 .container{
 	width: 700px !important;
+	padding: 0;
 }
 
 .error{
 	border: solid 2px red;
+}
+
+.expired{
+	background-color: tomato;
 }
 
 .expiring{
@@ -12,15 +26,17 @@
 
 h1{
 	text-align: center;
-}
-
-input{
-	height: 35px;
+	color: white;
 }
 
 .item{
-	width: 600px;
 	border: solid 1px grey;
+	height: 35px;
+}
+
+.items{
+	background-color: white;
+	opacity: 0.7;
 }
 
 .message{
@@ -28,6 +44,9 @@ input{
 }
 
 .title{
+	padding-top: 7px;
+	font-size: 17px;
+	height: 40px;
 	margin-top: 15px;
 	border: solid 1px grey;
 	font-weight: bold;
