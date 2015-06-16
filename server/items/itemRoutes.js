@@ -6,6 +6,8 @@ module.exports = function(app){
 	// app.route(path) returns an instance of a single route to handle HTTP requests
 	// TODO: to set up routes in the itemController 
 	app.route('/')
-		.get(itemController.allItems)
-		.post(itemController.newItem);
+		.get(itemController.getItems)
+		.post(itemController.addItem);
+
+	app.post('/remove', itemController.removeItem);
 }

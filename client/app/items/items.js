@@ -7,7 +7,11 @@ angular.module('fresh.items', [])
 
   // TODO: Write a function to add the items to the list
   $scope.addItem = function(){
-  	ItemsFactory.addItem($scope.item);
+  	ItemsFactory.addItem($scope.item)
+      .then(function(){
+        $scope.item = {};
+        $scope.getItems();
+      });
   };
 
   $scope.getItems = function(){
@@ -16,6 +20,13 @@ angular.module('fresh.items', [])
   			$scope.data = items;
   		});
   };
+
+  $scope.removeItem = function(item){
+    ItemsFactory.removeItem(item)
+      .then(function(){
+        $scope.getItems();
+      })
+  }
 
   $scope.getItems();
 });
