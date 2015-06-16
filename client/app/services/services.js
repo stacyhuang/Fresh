@@ -7,6 +7,9 @@ angular.module('fresh.services', [])
 			url: '/items',
 			data: item
 		})
+		.then(function(res){
+			return res.data;
+		})
 	};
 
 	var getItems = function(){

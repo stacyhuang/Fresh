@@ -9,9 +9,10 @@ angular.module('fresh.items', [])
   // TODO: Write a function to add the items to the list
   $scope.addItem = function(){
   	ItemsFactory.addItem($scope.item)
-      .then(function(){
+      .then(function(item){
         $scope.item = {};
-        $scope.getItems();
+        //$scope.getItems();
+        $scope.data.push(item);
         $scope.inputField.$setPristine();
       });
   };
