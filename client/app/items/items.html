@@ -1,7 +1,23 @@
-<div id="container">
+<div class="container">
 	<form name="inputField" ng-submit="addItem">
 		<input type="text" ng-model="item.name" placeholder="Add an item" />
 		<input type="date" ng-model="item.expiration"/>
 		<button>Add</button>
 	</form>
+
+	<div class="items">
+		<!-- Title bar -->
+		<div class="item container text-center">
+			<div class="itemName col-xs-6">Item</div>
+			<div class="purchaseDate col-xs-3">Purchase Date</div>
+			<div class="expirationDate .col-xs-3">Expiration Date</div>
+		</div>
+		<!-- Items -->
+		<div class="item" ng-repeat="item in items">
+			<div class="itemName">{{item.itemName}}</div>
+			<div class="purchaseDate">{{item.purchaseDate}}</div>
+			<div class="expirationDate">{{item.expirationDate}}</div>
+		</div>
+	</div>
+
 </div> 

@@ -1,0 +1,16 @@
+.container{
+	width: 700px !important;
+}
+
+h1{
+	text-align: center;
+}
+
+.item{
+	width: 600px;
+	border: solid 1px grey;
+}
+
+.items{
+	margin-top: 15px;
+}

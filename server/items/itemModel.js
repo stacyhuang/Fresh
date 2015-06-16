@@ -6,7 +6,7 @@ var ItemSchema = new Schema({
   itemName:  {
   	type: String,
   	required: true
-  }
+  },
   purchaseDate: { 
   	type: Date, 
   	default: Date.now 

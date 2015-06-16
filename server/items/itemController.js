@@ -1,4 +1,4 @@
-var Item = require('./linkModel.js');
+var Item = require('./itemModel.js');
 
 module.exports = {
 
