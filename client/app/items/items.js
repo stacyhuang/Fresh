@@ -4,6 +4,7 @@ angular.module('fresh.items', [])
   // Your code here
   $scope.item = {};
   $scope.data = {};
+  $scope.today = new Date().toISOString().split("T")[0];
 
   // TODO: Write a function to add the items to the list
   $scope.addItem = function(){
@@ -11,6 +12,7 @@ angular.module('fresh.items', [])
       .then(function(){
         $scope.item = {};
         $scope.getItems();
+        $scope.inputField.$setPristine();
       });
   };
 

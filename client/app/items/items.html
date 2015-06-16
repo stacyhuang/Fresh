@@ -1,9 +1,12 @@
 <div class="container">
 	<form name="inputField" ng-submit="addItem()" novalidate>
 		<input type="text" name="itemName" ng-model="item.itemName" placeholder="Add an item" required ng-class="{'error': inputField.itemName.$invalid && inputField.itemName.$dirty}"/>
-		<input type="date" name="expiration" ng-model="item.expirationDate" required/>
-		<button ng-disabled="inputField.$invalid" ng-clicked="form$setPristine()">Add</button>
+		<input type="date" name="expiration" ng-model="item.expirationDate" required min="{{today}}"/>
+		<button ng-disabled="inputField.$invalid && inputField.$dirty">Add</button>
 	</form>
+	<div ng-show='inputField.itemName.$error.required && inputField.itemName.$dirty' class="message">
+	  Item name required
+	</div>
 
 	</div class="items">
 		<!-- Title bar -->
