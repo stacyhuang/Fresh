@@ -1,19 +1,19 @@
 <div class="container">
-	<form name="inputField" ng-submit="addItem()">
-		<input type="text" ng-model="item.itemName" placeholder="Add an item" />
-		<input type="date" ng-model="item.expirationDate"/>
-		<button>Add</button>
+	<form name="inputField" ng-submit="addItem()" novalidate>
+		<input type="text" name="itemName" ng-model="item.itemName" placeholder="Add an item" required ng-class="{'error': inputField.itemName.$invalid && inputField.itemName.$dirty}"/>
+		<input type="date" name="expiration" ng-model="item.expirationDate" required/>
+		<button ng-disabled="inputField.$invalid" ng-clicked="form$setPristine()">Add</button>
 	</form>
 
-	<!-- Title bar -->
-	<div class="title container">
-		<div class="itemName col-xs-6">Item</div>
-		<div class="purchaseDate col-xs-3">Purchase date</div>
-		<div class="expirationDate col-xs-3">Expires in</div>
-	</div>
+	</div class="items">
+		<!-- Title bar -->
+		<div class="title container">
+			<div class="itemName col-xs-6">Item</div>
+			<div class="purchaseDate col-xs-3">Purchase date</div>
+			<div class="expirationDate col-xs-3">Expires in</div>
+		</div>
 
-	<!-- Items -->
-	<div class="items">
+		<!-- Items -->
 		<div class="item container" ng-repeat="item in data | orderBy: 'expirationDate' track by item._id" ng-click="removeItem(item)">
 			<div class="itemName col-xs-6">{{item.itemName}}</div>
 			<div class="purchaseDate col-xs-3">{{item.purchaseDate | date: "yyyy-MM-dd"}}</div>
@@ -21,5 +21,16 @@
 			<!-- <div class="expirationDate col-xs-3">{{item.expirationDate}} days</div> -->
 		</div>
 	</div>
+
+	<!-- To-Buy List -->
+	<!-- <div class="list">
+		<div class="title container">
+			<div>Item</div>
+		</div>
+
+		<div class="item container" ng-repeat="item in data track by item._id" ng-click="removeFromList(item)">
+			<div class="itemName">{{item.itemName}}</div>
+		</div>
+	</div> -->
 
 </div> 
