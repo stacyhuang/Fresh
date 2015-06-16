@@ -24,7 +24,7 @@ angular.module('fresh.items', [])
   		});
   };
 
-  $scope.removeItem = function(item){
+  $scope.removeItem = function(item, index){
     ItemsFactory.removeItem(item)
       .then(function(){
         $scope.getItems();
