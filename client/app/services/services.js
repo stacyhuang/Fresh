@@ -19,8 +19,17 @@ angular.module('fresh.services', [])
 		})
 	};
 
+	var removeItem = function(item){
+		return $http({
+			method: 'POST',
+			url: '/items/remove',
+			data: item
+		})
+	}
+
 	return{
 		addItem: addItem,
-		getItems: getItems
+		getItems: getItems,
+		removeItem: removeItem
 	};
-});
+}); 

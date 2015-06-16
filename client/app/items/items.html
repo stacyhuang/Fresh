@@ -6,18 +6,19 @@
 	</form>
 
 	<!-- Title bar -->
-	<div class="title container text-center">
+	<div class="title container">
 		<div class="itemName col-xs-6">Item</div>
-		<div class="purchaseDate col-xs-3">Purchase Date</div>
-		<div class="expirationDate col-xs-3">Expiration Date</div>
+		<div class="purchaseDate col-xs-3">Purchase date</div>
+		<div class="expirationDate col-xs-3">Expires in</div>
 	</div>
 
 	<!-- Items -->
-	<div class="items container">
-		<div class="item" ng-repeat="item in data">
+	<div class="items">
+		<div class="item container" ng-repeat="item in data track by $index | orderBy: 'expirationDate'" ng-click="removeItem($index)">
 			<div class="itemName col-xs-6">{{item.itemName}}</div>
-			<div class="purchaseDate col-xs-3">{{item.purchaseDate}}</div>
-			<div class="expirationDate col-xs-3">{{item.expirationDate}}</div>
+			<div class="purchaseDate col-xs-3">{{item.purchaseDate | date: "yyyy-MM-dd"}}</div>
+			<div class="expirationDate col-xs-3">{{item.expirationDate | amDifference : null : 'days'}} days</div>
+			<!-- <div class="expirationDate col-xs-3">{{item.expirationDate}} days</div> -->
 		</div>
 	</div>
 

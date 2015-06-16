@@ -4,10 +4,12 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "angular-moment": "^0.10.1",
     "body-parser": "^1.4.3",
     "express": "^4.4.5",
     "mongoose": "^4.0.5",
-    "request": "^2.36.0",
-    "nodemon": "^1.2.1"
+    "nodemon": "^1.2.1",
+    "q": "^1.4.1",
+    "request": "^2.36.0"
   }
 }

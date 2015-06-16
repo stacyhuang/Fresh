@@ -1,18 +1,17 @@
 var Item = require('./itemModel.js');
 
 module.exports = {
-	allItems : function(req, res){
+	getItems : function(req, res){
 		Item.find({}).exec(function(err, items){
 			if(err){
 				res.send(500, err);
 			}else{
-				console.log(items);
 				res.json(items);
 			}
 		})
 	},
 
-	newItem : function(req, res){
+	addItem : function(req, res){
 		var itemName = req.body.itemName;
 		var expirationDate = req.body.expirationDate;
 		var newItem = new Item({
@@ -26,5 +25,15 @@ module.exports = {
 				res.json(newEntry);
 			}
 		})
+	},
+
+	removeItem: function(req, res){
+		Item.findOne({itemName: req.body.itemName}).remove(function(err){
+			if(err){
+				res.send(500, err);
+			}else{
+				res.sendStatus(200);
+			}
+		});
 	}
 };
