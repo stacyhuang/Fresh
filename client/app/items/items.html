@@ -17,7 +17,9 @@
 		</div>
 
 		<!-- Items -->
-		<div class="item container" ng-repeat="item in data | orderBy: 'expirationDate' track by item._id" ng-click="removeItem(item)">
+		<div class="item container" ng-repeat="item in data | orderBy: 'expirationDate' track by item._id" ng-click="removeItem(item)" ng-class="{'expiring': {{item.expirationDate | amDifference : null : 'days'}} < 3}">
+
+
 			<div class="itemName col-xs-6">{{item.itemName}}</div>
 			<div class="purchaseDate col-xs-3">{{item.purchaseDate | date: "yyyy-MM-dd"}}</div>
 			<div class="expirationDate col-xs-3">{{item.expirationDate | amDifference : null : 'days'}} days</div>

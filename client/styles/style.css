@@ -6,6 +6,10 @@
 	border: solid 2px red;
 }
 
+.expiring{
+	background-color: pink;
+}
+
 h1{
 	text-align: center;
 }

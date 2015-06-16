@@ -28,7 +28,7 @@ angular.module('fresh.items', [])
       .then(function(){
         $scope.getItems();
       })
-  }
+  };
 
   $scope.getItems();
 });
