@@ -4,6 +4,7 @@ angular.module('fresh.items', [])
   // Your code here
   $scope.item = {};
   $scope.data = {};
+  $scope.list = [];
   $scope.today = new Date().toISOString().split("T")[0];
 
   // TODO: Write a function to add the items to the list
@@ -24,12 +25,34 @@ angular.module('fresh.items', [])
   		});
   };
 
-  $scope.removeItem = function(item, index){
+  $scope.removeItem = function(item){
     ItemsFactory.removeItem(item)
       .then(function(){
         $scope.getItems();
       })
   };
 
+  $scope.addToList = function(item){
+    ItemsFactory.addToList(item)
+      .then(function(item){
+        $scope.list.push(item);
+      });
+  };
+
+  $scope.getList = function(){
+    ItemsFactory.getList()
+      .then(function(items){
+        $scope.list = items;
+      });
+  };
+
+  $scope.removeFromList = function(item){
+    ItemsFactory.removeFromList(item)
+      .then(function(){
+        $scope.getList();
+      })
+  };
+
   $scope.getItems();
+  $scope.getList();
 });

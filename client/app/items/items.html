@@ -26,7 +26,7 @@
 				<div class="purchaseDate col-xs-3">{{item.purchaseDate | date: "yyyy-MM-dd"}}</div>
 				<div class="expirationDate col-xs-3">{{item.expirationDate | amDifference : null : 'days'}} days</div>
 			</div>
-			<button class="col-xs-2" ng-click="addToList">To Buy</button>
+			<button class="col-xs-2" ng-click="addToList(item)">To Buy</button>
 		</div>
 	</div>
 
@@ -34,15 +34,9 @@
 	<!-- To-Buy List -->
 	<h1>Shopping List</h1>
 	<div class="itemsContainer">
-		<div class="title container">
-			<div class="col-xs-10">
-				<div class="itemName col-xs-6">Item</div>
-			</div>
-			<div class="col-xs-2"></div>
-		</div>
-
-		<div class="item container" ng-repeat="item in data track by item._id" ng-click="removeFromList(item)">
-			<div class="itemName"></div>
+		<div class="title listItem">Item</div>
+		<div class="item listItem container" ng-repeat="item in list track by item._id" ng-click="removeFromList(item)">
+			<div class="itemName">{{item.itemName}}</div>
 		</div>
 	</div>
 

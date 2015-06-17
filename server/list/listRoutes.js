@@ -1,4 +1,4 @@
-var itemController = require('./itemController.js');
+var listController = require('./listController.js');
 
 module.exports = function(app){
 	// app is the itemRouter injected from imddleware.js
@@ -6,9 +6,8 @@ module.exports = function(app){
 	// app.route(path) returns an instance of a single route to handle HTTP requests
 	// TODO: to set up routes in the itemController 
 	app.route('/')
-		.get(itemController.getItems)
-		.post(itemController.addItem);
+		.get(listController.getList)
+		.post(listController.addToList);
 
-	app.post('/remove', itemController.removeItem);
-
+	app.post('/remove', listController.removeFromList);
 }

@@ -1,8 +1,8 @@
-var Item = require('./itemModel.js');
+var List = require('./listModel.js');
 
 module.exports = {
-	getItems : function(req, res){
-		Item.find({}).exec(function(err, items){
+	getList : function(req, res){
+		List.find({}).exec(function(err, items){
 			if(err){
 				res.send(500, err);
 			}else{
@@ -11,12 +11,10 @@ module.exports = {
 		})
 	},
 
-	addItem : function(req, res){
+	addToList : function(req, res){
 		var itemName = req.body.itemName;
-		var expirationDate = req.body.expirationDate;
-		var newItem = new Item({
+		var newItem = new List({
 			itemName: itemName,
-			expirationDate: expirationDate,
 		});
 		newItem.save(function(err, newEntry){
 			if(err){
@@ -27,8 +25,8 @@ module.exports = {
 		})
 	},
 
-	removeItem: function(req, res){ 
-		Item.findOne({_id: req.body._id}).remove(function(err){
+	removeFromList: function(req, res){
+		List.findOne({_id: req.body._id}).remove(function(err){
 			if(err){
 				res.send(500, err);
 			}else{
