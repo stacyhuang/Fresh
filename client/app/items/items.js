@@ -25,10 +25,10 @@ angular.module('fresh.items', [])
   		});
   };
 
-  $scope.removeItem = function(item){
+  $scope.removeItem = function(item, index){
     ItemsFactory.removeItem(item)
       .then(function(){
-        $scope.getItems();
+        $scope.data.splice(index, 1);
       })
   };
 
@@ -46,10 +46,10 @@ angular.module('fresh.items', [])
       });
   };
 
-  $scope.removeFromList = function(item){
+  $scope.removeFromList = function(item, index){
     ItemsFactory.removeFromList(item)
       .then(function(){
-        $scope.getList();
+        $scope.list.splice(index, 1);
       })
   };
 
