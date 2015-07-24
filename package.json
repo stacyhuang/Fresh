@@ -3,6 +3,12 @@
   "version": "0.0.0",
   "description": "",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "0.12.4"
+  },
   "dependencies": {
     "angular-moment": "^0.10.1",
     "body-parser": "^1.4.3",
